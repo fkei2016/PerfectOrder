@@ -43,7 +43,7 @@ void OnTick()
 //---
 
    int CurrentPosition = 0;
-   int order_select[10]; //最大１０個までポジションをもつ
+   int order_select; //ポジションをもつ
 
    int EMA1 = 21; //移動平均期間 21
    int EMA2 = 48; //移動平均期間 48
@@ -52,7 +52,7 @@ void OnTick()
    // オーダーチェック（ポジションなどのデータ）
    for(int cnt=0;cnt<OrdersTotal();cnt++)
    {
-      order_select[CurrentPosition] = OrderSelect(cnt,SELECT_BY_POS);
+      order_select = OrderSelect(cnt,SELECT_BY_POS);
       
       if(OrderSymbol() == Symbol()) 
       {
